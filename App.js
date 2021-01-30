@@ -1,13 +1,20 @@
+import 'react-native-gesture-handler';
+import React, {useState} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './src/screens/Home';
+import Drawer from './src/navigation/Drawer';
+import Login from './src/navigation/Login';
 
 export default function App() {
+  const [login, setLogin] = useState(true)
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      {
+        login ? (<Drawer />) : (<Login />)
+      }
+    </NavigationContainer>
   );
 }
 
