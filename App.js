@@ -12,7 +12,11 @@ export default function App() {
   return (
     <NavigationContainer>
       {
-        login ? (<Drawer />) : (<Login />)
+        login ? (
+        <Drawer />
+        ) : (
+        <Login />
+        )
       }
     </NavigationContainer>
   );
