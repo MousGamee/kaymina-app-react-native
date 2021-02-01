@@ -113,6 +113,7 @@ const DrawerContent = props => {
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
                                 <View pointerEvents="none">
+
                                     <Switch value="value" />
                                 </View>
                             </View>
