@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { COLORS, SIZES } from '../constants/theme'
 
-const HomeProductItem = ({ image, title, description, navigation, _id }) => {
+const HomeProductItem = ({ image, title, description, navigation, handleNavigation, _id }) => {
     return (
         <View style={styles.productItem}>
-            <TouchableOpacity style={styles.imageContainer} onPress={() => console.log('go to => ', _id)}>
+            <TouchableOpacity style={styles.imageContainer} onPress={() => handleNavigation()}>
                 <Image
                     style={styles.image}
                     source={image}

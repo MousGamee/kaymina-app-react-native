@@ -14,6 +14,7 @@ export const COLORS = {
 
 export const SIZES = {
     icons : 20,
+    bigTitle : 24,
     h1 : 16,
     h2 : 12
 }

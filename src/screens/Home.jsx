@@ -5,7 +5,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeProductItem from '../components/HomeProductItem';
 import { COLORS, SIZES } from '../constants/theme'
 
-const Home = navigation => {
+const Home = ({ navigation }) => {
+
+    const handleNavigation = () => {
+        navigation.navigate('product-details')
+    }
+
     const data = [
         {
             _id: 1,
@@ -23,7 +28,7 @@ const Home = navigation => {
             _id: 3,
             title: 'mon item 3',
             description: 'test de lajout dun iteme',
-            image: require('../../assets/images/image-3.jpg')
+            image: require('../../assets/images/image-6.jpg')
         },
         {
             _id: 4,
@@ -47,7 +52,7 @@ const Home = navigation => {
             _id: 7,
             title: 'mon item 3',
             description: 'test de lajout dun iteme',
-            image: require('../../assets/images/image-3.jpg')
+            image: require('../../assets/images/image-6.jpg')
         },
         {
             _id: 8,
@@ -71,7 +76,7 @@ const Home = navigation => {
             _id: 11,
             title: 'mon item 3',
             description: 'test de lajout dun iteme',
-            image: require('../../assets/images/image-3.jpg')
+            image: require('../../assets/images/image-6.jpg')
         },
         {
             _id: 12,
@@ -85,12 +90,14 @@ const Home = navigation => {
         <SafeAreaView style={{ flex: 1 }}>
             {/* content */}
             <FlatList
+                style={{ marginTop: 10 }}
                 data={data}
                 keyExtractor={item => item._id.toString()}
                 numColumns={2}
                 renderItem={({ item }) => {
                     return (
                         <HomeProductItem
+                            handleNavigation={handleNavigation}
                             _id={item._id}
                             image={item.image}
                             title={item.title}
@@ -99,9 +106,6 @@ const Home = navigation => {
                     )
                 }}
             />
-
-
-
         </SafeAreaView>
     )
 }
