@@ -17,9 +17,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-
 const DrawerContent = props => {
-
 
     return (
         <View style={{ flex: 1 }}>
@@ -61,7 +59,7 @@ const DrawerContent = props => {
                                 />
                             )}
                             label="Home"
-                            onPress={() => { props.navigation.navigate('Home') }}
+                            onPress={() => { props.navigation.navigate('home') }}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -72,7 +70,7 @@ const DrawerContent = props => {
                                 />
                             )}
                             label="Profile"
-                            onPress={() => { props.navigation.navigate('Profile') }}
+                            onPress={() => { props.navigation.navigate('profil') }}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -94,7 +92,7 @@ const DrawerContent = props => {
                                 />
                             )}
                             label="Settings"
-                            onPress={() => { props.navigation.navigate('SettingsScreen') }}
+                            onPress={() => console.log('go to setting')}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -105,11 +103,11 @@ const DrawerContent = props => {
                                 />
                             )}
                             label="Support"
-                            onPress={() => { props.navigation.navigate('SupportScreen') }}
+                            onPress={() => console.log('go to support')}
                         />
                     </Drawer.Section>
                     <Drawer.Section title="Preferences">
-                        <TouchableRipple onPress={() => { toggleTheme() }}>
+                        <TouchableRipple onPress={() => console.log('toggle theme')}>
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
                                 <View pointerEvents="none">

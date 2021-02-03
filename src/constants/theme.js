@@ -1,14 +1,19 @@
 import { Dimensions } from 'react-native'
-const { width, heigth } = Dimensions.get('window')
+
+export const WIDTH = Dimensions.get('window').width
+export const HEIGTH = Dimensions.get('window').HEIGTH
 
 export const COLORS = {
     // basic colors
     primary : '#FA4248',
     secondary : '',
-
+    h1 : '#000000',
+    h2 : '#929292',
     dark : ''
 }
 
 export const SIZES = {
-
+    icons : 20,
+    h1 : 16,
+    h2 : 12
 }

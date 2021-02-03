@@ -2,16 +2,16 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import DrawerContent from './DrawerContent'
-import Home from '../screens/Home'
-import Profil from '../screens/Profil'
+import HomeNavigation from './HomeNavigation'
+import ProfilNavigation from './ProfilNavigation'
 
 const DrawerStack = createDrawerNavigator()
 
 const Drawer = () => {
     return (
         <DrawerStack.Navigator drawerContent={props => <DrawerContent {...props} />} >
-            <DrawerStack.Screen name="Home" component={Home} />
-            <DrawerStack.Screen name="Profil" component={Profil} />
+            <DrawerStack.Screen name="home" component={HomeNavigation} />
+            <DrawerStack.Screen name="profil" component={ProfilNavigation} />
         </DrawerStack.Navigator>
     )
 }
