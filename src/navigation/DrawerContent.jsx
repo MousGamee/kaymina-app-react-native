@@ -15,6 +15,7 @@ import {
     DrawerItem
 } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 const DrawerContent = props => {
@@ -64,7 +65,7 @@ const DrawerContent = props => {
                         <DrawerItem
                             icon={({ color, size }) => (
                                 <Icon
-                                    name="bookmark-outline"
+                                    name="heart-outline"
                                     color={color}
                                     size={size}
                                 />
@@ -74,7 +75,7 @@ const DrawerContent = props => {
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
-                                <Icon
+                                <Ionicons
                                     name="settings-outline"
                                     color={color}
                                     size={size}

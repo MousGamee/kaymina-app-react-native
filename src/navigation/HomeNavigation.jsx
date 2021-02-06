@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { COLORS, SIZES } from '../constants/theme'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -15,10 +15,14 @@ const HomeNavigation = ({ navigation }) => {
         <HomeStack.Navigator>
             <HomeStack.Screen name="home" component={Home} options={{
                 headerLeft: () => (
-                    <Ionicons
+                    <TouchableOpacity
                         onPress={() => navigation.openDrawer()}
-                        name="ios-menu" size={SIZES.icons} style={{ marginLeft: 20 }} />
+                        style={{ height: '100%', alignContent: 'center', justifyContent: 'center' }}>
+                        <Ionicons
+                            name="ios-menu" size={SIZES.icons} style={{ marginLeft: 20 }} />
+                    </TouchableOpacity>
                 ),
+
                 headerRight: () => (
                     <View style={{ flexDirection: 'row', marginRight: 20 }}>
                         <Ionicons name="ios-heart" size={SIZES.icons} onPress={() => navigation.navigate('favoris')} />

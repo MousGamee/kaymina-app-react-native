@@ -1,6 +1,6 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
 import { View, Text, SafeAreaView, FlatList, StyleSheet } from 'react-native'
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeProductItem from '../components/HomeProductItem';
 import { COLORS, SIZES } from '../constants/theme'

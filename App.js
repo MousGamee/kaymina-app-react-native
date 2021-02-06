@@ -5,17 +5,17 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/screens/Home';
 import Drawer from './src/navigation/Drawer';
-import Login from './src/navigation/Login';
+import AuthNavigation from './src/navigation/AuthNavigation';
 
 export default function App() {
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
   return (
     <NavigationContainer>
       {
         login ? (
         <Drawer />
         ) : (
-        <Login />
+        <AuthNavigation />
         )
       }
     </NavigationContainer>
