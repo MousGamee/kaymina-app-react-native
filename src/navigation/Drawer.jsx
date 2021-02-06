@@ -11,7 +11,6 @@ const Drawer = () => {
     return (
         <DrawerStack.Navigator drawerContent={props => <DrawerContent {...props} />} >
             <DrawerStack.Screen name="home" component={HomeNavigation} />
-            <DrawerStack.Screen name="profil" component={ProfilNavigation} />
         </DrawerStack.Navigator>
     )
 }

@@ -7,6 +7,7 @@ import Home from '../screens/Home'
 import Search from '../screens/Search'
 import ProductDetails from '../screens/ProductDetails'
 import Favoris from '../screens/Favoris';
+import Profil from '../screens/Profil';
 
 const HomeStack = createStackNavigator()
 
@@ -37,6 +38,7 @@ const HomeNavigation = ({ navigation }) => {
             }} />
             <HomeStack.Screen name="search" component={Search} />
             <HomeStack.Screen name="favoris" component={Favoris} />
+            <HomeStack.Screen name="profil" component={Profil} />
             <HomeStack.Screen name="product-details" component={ProductDetails} options={{
                 headerTitle: false,
                 headerTransparent: true
