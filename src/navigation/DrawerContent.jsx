@@ -16,6 +16,7 @@ import {
 } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { SIZES } from '../constants/theme';
 
 
 const DrawerContent = props => {
@@ -28,9 +29,9 @@ const DrawerContent = props => {
                         <View style={{ flexDirection: 'row', marginTop: 15 }}>
                             <Avatar.Image
                                 source={{
-                                    uri: 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                                    uri: 'https://img2.freepng.fr/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg'
                                 }}
-                                size={50}
+                                size={SIZES.avatar}
                             />
                             <View style={{ marginLeft: 15, flexDirection: 'column' }}>
                                 <Title style={styles.title}>John Doe</Title>
@@ -48,7 +49,7 @@ const DrawerContent = props => {
                                     size={size}
                                 />
                             )}
-                            label="Home"
+                            label="Acceuil"
                             onPress={() => { props.navigation.navigate('home') }}
                         />
                         <DrawerItem
@@ -59,7 +60,7 @@ const DrawerContent = props => {
                                     size={size}
                                 />
                             )}
-                            label="Profile"
+                            label="Mon compte"
                             onPress={() => { props.navigation.navigate('profil') }}
                         />
                         <DrawerItem
@@ -70,8 +71,8 @@ const DrawerContent = props => {
                                     size={size}
                                 />
                             )}
-                            label="Bookmarks"
-                            onPress={() => { props.navigation.navigate('BookmarkScreen') }}
+                            label="Mes favoris"
+                            onPress={() => { props.navigation.navigate('favoris') }}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -81,8 +82,8 @@ const DrawerContent = props => {
                                     size={size}
                                 />
                             )}
-                            label="Settings"
-                            onPress={() => console.log('go to setting')}
+                            label="Options"
+                            onPress={() => alert('go to setting')}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -92,14 +93,14 @@ const DrawerContent = props => {
                                     size={size}
                                 />
                             )}
-                            label="Support"
-                            onPress={() => console.log('go to support')}
+                            label="Besoin d'aide"
+                            onPress={() => alert('go to support')}
                         />
                     </Drawer.Section>
                     <Drawer.Section title="Preferences">
                         <TouchableRipple onPress={() => console.log('toggle theme')}>
                             <View style={styles.preference}>
-                                <Text>Dark Theme</Text>
+                                <Text>Theme sombre</Text>
                                 <View pointerEvents="none">
 
                                     <Switch value="value" />
@@ -118,8 +119,8 @@ const DrawerContent = props => {
                             size={size}
                         />
                     )}
-                    label="Sign Out"
-                    onPress={() => console.log('sign out')}
+                    label="Déconnexion"
+                    onPress={() => alert('sign out')}
                 />
             </Drawer.Section>
         </View>
