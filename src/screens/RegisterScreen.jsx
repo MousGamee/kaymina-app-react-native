@@ -11,15 +11,28 @@ const RegisterScreen = ({ navigation }) => {
                 <Text style={styles.formTitle}>Inscription</Text>
                 <View style={styles.logoContainer}></View>
                 <Text style={styles.formSubTitle}>Ou avec votre mail!</Text>
+
                 <View style={styles.formInput}>
                     <Icon name="account-outline" size={SIZES.icons} color={COLORS.secondary} style={styles.icon} />
-                    <TextInput style={styles.input} placeholder={"Email ou nom d'utilisateur"} />
+                    <TextInput style={styles.input} placeholder={"Email"} />
                 </View>
+
+                <View style={styles.formInput}>
+                    <Icon name="account-outline" size={SIZES.icons} color={COLORS.secondary} style={styles.icon} />
+                    <TextInput style={styles.input} placeholder={"Confirmez votre Email"} />
+                </View>
+
                 <View style={styles.formInput}>
                     <Ionicons name="lock-closed-outline" size={SIZES.icons} color={COLORS.secondary} style={styles.icon} />
                     <TextInput style={styles.input} placeholder={'Mot de passe'} />
                 </View>
-                <TouchableOpacity style={styles.btn}><Text style={styles.btnText}>Se Connecter</Text></TouchableOpacity>
+
+                <View style={styles.formInput}>
+                    <Ionicons name="lock-closed-outline" size={SIZES.icons} color={COLORS.secondary} style={styles.icon} />
+                    <TextInput style={styles.input} placeholder={'Confirmez votre mot de passe'} />
+                </View>
+
+                <TouchableOpacity style={styles.btn}><Text style={styles.btnText}>S'inscrire</Text></TouchableOpacity>
                 <View style={styles.createAccountSection}>
                     <Text style={styles.createAccountText}>Déja inscris ? </Text>
                     <TouchableOpacity style={styles.createAccountBtn} onPress={() => navigation.navigate('login')}>
@@ -96,7 +109,8 @@ const styles = StyleSheet.create({
     },
     btnText: {
         color: COLORS.white,
-        fontSize: SIZES.btn
+        fontSize: SIZES.btn,
+        fontWeight: 'bold'
     },
     createAccountSection: {
         flexDirection: 'row'

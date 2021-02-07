@@ -1,14 +1,27 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, ScrollView } from 'react-native'
+import FavorisProductItem from '../components/FavorisProductItem'
 
-const Favoris = () => {
+const Favoris = ({ navigation }) => {
     return (
-        <View>
-            <Text> Favoris</Text>
-        </View>
+        <ScrollView>
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+            <FavorisProductItem />
+        </ScrollView>
     )
 }
 
 export default Favoris
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+})

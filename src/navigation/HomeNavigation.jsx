@@ -38,7 +38,9 @@ const HomeNavigation = ({ navigation }) => {
             }} />
             <HomeStack.Screen name="search" component={Search} />
             <HomeStack.Screen name="favoris" component={Favoris} />
-            <HomeStack.Screen name="profil" component={Profil} />
+            <HomeStack.Screen name="profil" component={Profil} options={{
+                headerTitle: "Mon compte"
+            }} />
             <HomeStack.Screen name="product-details" component={ProductDetails} options={{
                 headerTitle: false,
                 headerTransparent: true

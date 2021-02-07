@@ -97,7 +97,9 @@ const styles = StyleSheet.create({
     },
     btnText: {
         color: COLORS.white,
-        fontSize: SIZES.btn
+        fontSize: SIZES.btn,
+        fontWeight: 'bold'
+
     },
     createAccountSection: {
         flexDirection: 'row'

@@ -87,7 +87,7 @@ const Home = ({ navigation }) => {
     ]
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             {/* content */}
             <FlatList
                 style={{ marginTop: 10 }}
