@@ -11,9 +11,6 @@ const Favoris = ({ navigation }) => {
             <FavorisProductItem />
             <FavorisProductItem />
             <FavorisProductItem />
-            <FavorisProductItem />
-            <FavorisProductItem />
-            <FavorisProductItem />
         </ScrollView>
     )
 }

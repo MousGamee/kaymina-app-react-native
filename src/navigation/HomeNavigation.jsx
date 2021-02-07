@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, Text } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { COLORS, SIZES } from '../constants/theme'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -8,6 +8,8 @@ import Search from '../screens/Search'
 import ProductDetails from '../screens/ProductDetails'
 import Favoris from '../screens/Favoris';
 import Profil from '../screens/Profil';
+import SearchBar from '../components/SearchBar';
+
 
 const HomeStack = createStackNavigator()
 
@@ -36,7 +38,15 @@ const HomeNavigation = ({ navigation }) => {
                 }
 
             }} />
-            <HomeStack.Screen name="search" component={Search} />
+            <HomeStack.Screen name="search" component={Search} options={{
+                headerTitle: () => (
+                    <SearchBar />
+                ),
+                headerRight: () => (
+                    <Ionicons name='heart-outline' />
+                )
+
+            }} />
             <HomeStack.Screen name="favoris" component={Favoris} />
             <HomeStack.Screen name="profil" component={Profil} options={{
                 headerTitle: "Mon compte"

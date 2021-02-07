@@ -9,7 +9,7 @@ const HomeProductItem = ({ image, title, description, navigation, handleNavigati
             <TouchableOpacity style={styles.imageContainer} onPress={() => handleNavigation()}>
                 <Image
                     style={styles.image}
-                    source={image}
+                    source={{ uri: image }}
                 />
             </TouchableOpacity>
 
@@ -29,8 +29,10 @@ export default HomeProductItem
 
 const styles = StyleSheet.create({
     productItem: {
-        height: 300,
-        width: 170
+        flex: .5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 25
     },
     imageContainer: {
         width: 170,
@@ -39,12 +41,12 @@ const styles = StyleSheet.create({
     image: {
         width: null,
         height: null,
-        resizeMode: 'contain',
+        resizeMode: 'cover',
         flex: 1,
         borderRadius: 20
     },
     textContainer: {
-        paddingHorizontal: 10,
+        paddingHorizontal: 0,
         marginTop: 10
     },
     titleContainer: {
