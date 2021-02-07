@@ -1,15 +1,21 @@
 import React from 'react'
 import { ScrollView, StyleSheet, Text, View, Image } from 'react-native'
+import CarouselDetailScreen from '../components/CarouselDetailScreen'
 import { WIDTH, HEIGTH, COLORS, SIZES } from '../constants/theme'
+
+
+//fake image store
+const images = [
+    "https://i.insider.com/5e38494bab49fd614557fcb4?width=600&format=jpeg&auto=webp",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGOePybiowPHZrhC-mb4RvzssbKvIcPihfvg&usqp=CAU",
+    "https://i.pinimg.com/originals/28/a9/c4/28a9c4af7067d946b8997e2d8f55cdbb.jpg"
+]
 
 const ProductDetails = ({ navigation }) => {
     return (
         <ScrollView style={{ flex: 1 }}>
             <View style={styles.imageContainer}>
-                <Image
-                    style={styles.image}
-                    source={require('../../assets/images/image-1.jpg')}
-                />
+                <CarouselDetailScreen images={images} />
             </View>
 
             <View style={styles.textContainer}>
