@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import { StyleSheet, Text, View, Image, FlatList, Animated } from 'react-native'
 import { WIDTH, HEIGTH, SIZES } from '../constants/theme'
 
@@ -35,7 +36,7 @@ const ProductDetails = ({ navigation, route }) => {
                     }}
                 />
                 <View style={styles.pagination}>
-                    {images.map((_, index) => {
+                    {item.images.map((_, index) => {
                         return (
                             <View style={[styles.dot]} key={index} />
                         )
@@ -50,14 +51,19 @@ const ProductDetails = ({ navigation, route }) => {
                     }]} />
                 </View>
             </View>
-
-            <View style={styles.textContainer}>
-                <Text style={styles.title}>{item.title}</Text>
-                <View>
-                    <Text style={styles.titleDescription}>Description</Text>
-                    <Text style={styles.textDescription}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae id itaque omnis voluptates molestias ab, corrupti harum placeat cupiditate consequuntur dolor, ullam optio perspiciatis atque, eius quidem. Magni, quidem?</Text>
-                </View>
-            </View>
+            <BottomSheet
+                initialSnapIndex={0}
+                snapPoints={[HEIGTH - IMAGE_HEIGTH, HEIGTH]}
+            >
+                <BottomSheetScrollView
+                    contentContainerStyle={{ padding: 10 }}
+                >
+                    <Text>{item.title}</Text>
+                    <View>
+                        <Text>{item.description}</Text>
+                    </View>
+                </BottomSheetScrollView>
+            </BottomSheet>
         </View>
     )
 }
