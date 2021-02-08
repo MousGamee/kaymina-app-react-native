@@ -26,7 +26,7 @@ const Home = ({ navigation }) => {
                             <View style={styles.textContainer}>
                                 <View style={styles.titleContainer}>
                                     <Text style={styles.title}>{item.title}</Text>
-                                    <Ionicons name="ios-heart-outline" size={SIZES.icons} />
+                                    {/* <Ionicons name="ios-heart-outline" size={SIZES.icons} /> */}
                                 </View>
                                 <Text style={styles.description}>{item.description}</Text>
                             </View>

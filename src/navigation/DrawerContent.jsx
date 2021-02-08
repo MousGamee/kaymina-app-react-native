@@ -18,7 +18,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SIZES } from '../constants/theme';
 
-
 const DrawerContent = props => {
 
     return (
@@ -51,6 +50,17 @@ const DrawerContent = props => {
                             )}
                             label="Acceuil"
                             onPress={() => { props.navigation.navigate('home') }}
+                        />
+                        <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    name="plus-box-outline"
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Creer"
+                            onPress={() => { props.navigation.navigate('creation-form') }}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
