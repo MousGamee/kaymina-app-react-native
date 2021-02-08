@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native'
 
 export const WIDTH = Dimensions.get('window').width
-export const HEIGTH = Dimensions.get('window').HEIGTH
+export const HEIGTH = Dimensions.get('window').height
 
 export const COLORS = {
     // basic colors
