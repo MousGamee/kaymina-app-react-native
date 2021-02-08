@@ -2,7 +2,7 @@ export const data = [
     {
         _id : 1,
         title : 'Robe militaire',
-        description : 'test de lajout dun iteme',
+        description : 'Robe militaire',
         image : "https://img.ltwebstatic.com/images2_pi/2019/07/23/15638711631396365502_thumbnail_600x799.jpg",
         images : [
             'https://img.ltwebstatic.com/images2_pi/2019/07/23/15638711631396365502_thumbnail_600x799.jpg',

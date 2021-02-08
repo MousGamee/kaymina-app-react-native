@@ -9,6 +9,7 @@ import ProductDetails from '../screens/ProductDetails'
 import Favoris from '../screens/Favoris';
 import Profil from '../screens/Profil';
 import SearchBar from '../components/SearchBar';
+import CreationForm from '../screens/CreationForm';
 
 
 const HomeStack = createStackNavigator()
@@ -42,7 +43,11 @@ const HomeNavigation = ({ navigation }) => {
             }} />
             <HomeStack.Screen name="search" component={Search} options={{
                 headerTitle: () => (
-                    <SearchBar />
+                    <View style={styles.container}>
+                        <View style={styles.inputContainer}>
+                            <TextInput style={styles.input} placeholder={'Recherche'} />
+                        </View>
+                    </View>
                 ),
                 headerRight: () => (
                     <Ionicons name='heart-outline' />
@@ -50,6 +55,7 @@ const HomeNavigation = ({ navigation }) => {
 
             }} />
             <HomeStack.Screen name="favoris" component={Favoris} />
+            <HomeStack.Screen name="creation-form" component={CreationForm} />
             <HomeStack.Screen name="profil" component={Profil} options={{
                 headerTitle: "Mon compte"
             }} />
