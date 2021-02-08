@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
+import { View, TouchableOpacity, Text, Image } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { COLORS, SIZES } from '../constants/theme'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -32,10 +32,12 @@ const HomeNavigation = ({ navigation }) => {
                         <Ionicons name="ios-search" size={SIZES.icons} style={{ marginLeft: 20 }} onPress={() => navigation.navigate('search')} />
                     </View>
                 ),
-                headerTitle: 'Kaymina',
-                headerTitleStyle: {
-                    color: COLORS.primary
-                }
+                headerTitle: () => (
+                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <Image source={{ uri: 'https://kaymina.fr/wp-content/uploads/2020/11/logo-kay2-1.png' }} style={{ width: 100, resizeMode: 'contain', height: 50 }} />
+                    </View>
+
+                )
 
             }} />
             <HomeStack.Screen name="search" component={Search} options={{

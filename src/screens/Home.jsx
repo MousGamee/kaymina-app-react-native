@@ -1,17 +1,10 @@
-import axios from 'axios';
 import React, { useEffect } from 'react'
-import { View, Text, SafeAreaView, FlatList, StyleSheet } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import HomeProductItem from '../components/HomeProductItem';
+import { View, Text, SafeAreaView, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import { COLORS, SIZES } from '../constants/theme'
 import { data } from '../../data'
 
 const Home = ({ navigation }) => {
-
-    const handleNavigation = () => {
-        navigation.navigate('product-details')
-    }
-
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
@@ -23,13 +16,21 @@ const Home = ({ navigation }) => {
                 numColumns={2}
                 renderItem={({ item }) => {
                     return (
-                        <HomeProductItem
-                            handleNavigation={handleNavigation}
-                            _id={item._id}
-                            image={item.image}
-                            title={item.title}
-                            description={item.description}
-                        />
+                        <View style={styles.productItem}>
+                            <TouchableOpacity style={styles.imageContainer} onPress={() => navigation.push('product-details', item)}>
+                                <Image
+                                    style={styles.image}
+                                    source={{ uri: item.image }}
+                                />
+                            </TouchableOpacity>
+                            <View style={styles.textContainer}>
+                                <View style={styles.titleContainer}>
+                                    <Text style={styles.title}>{item.title}</Text>
+                                    <Ionicons name="ios-heart-outline" size={SIZES.icons} />
+                                </View>
+                                <Text style={styles.description}>{item.description}</Text>
+                            </View>
+                        </View>
                     )
                 }}
             />
@@ -40,6 +41,40 @@ const Home = ({ navigation }) => {
 export default Home
 
 const styles = StyleSheet.create({
+    productItem: {
+        flex: .5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 25
+    },
+    imageContainer: {
+        width: 170,
+        height: 230,
+    },
+    image: {
+        width: null,
+        height: null,
+        resizeMode: 'cover',
+        flex: 1,
+        borderRadius: 20
+    },
+    textContainer: {
+        paddingHorizontal: 0,
+        marginTop: 10
+    },
+    titleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    title: {
+        fontSize: SIZES.h1,
+        color: COLORS.h1
+    },
+    description: {
+        fontSize: SIZES.h2,
+        color: COLORS.h2
 
+    }
 
 })

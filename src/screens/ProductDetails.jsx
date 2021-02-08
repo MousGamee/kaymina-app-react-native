@@ -14,7 +14,9 @@ const images = [
     "https://i.etsystatic.com/15843670/r/il/d35a86/2788736729/il_794xN.2788736729_hyov.jpg"
 ]
 
-const ProductDetails = ({ navigation }) => {
+const ProductDetails = ({ navigation, route }) => {
+    const item = route.params
+    console.log(item)
     const scrollY = useRef(new Animated.Value(0)).current
     return (
         <View style={{ flex: 1 }}>
@@ -24,14 +26,12 @@ const ProductDetails = ({ navigation }) => {
                     decelerationRate="fast"
                     showsVerticalScrollIndicator={false}
                     bounces={false}
-                    data={images}
+                    data={item.images}
                     keyExtractor={(_, index) => index.toString()}
-
                     onScroll={Animated.event(
                         [{ nativeEvent: { contentOffset: { y: scrollY } } }],
                         { useNativeDriver: true }
                     )}
-
                     renderItem={({ item }) => {
                         return (
                             <View>
@@ -58,7 +58,7 @@ const ProductDetails = ({ navigation }) => {
             </View>
 
             <View style={styles.textContainer}>
-                <Text style={styles.title}>Robe en wax</Text>
+                <Text style={styles.title}>{item.title}</Text>
                 <View>
                     <Text style={styles.titleDescription}>Description</Text>
                     <Text style={styles.textDescription}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae id itaque omnis voluptates molestias ab, corrupti harum placeat cupiditate consequuntur dolor, ullam optio perspiciatis atque, eius quidem. Magni, quidem?</Text>
@@ -103,12 +103,15 @@ const styles = StyleSheet.create({
         left: -DOT_SIZE / 2
     },
     textContainer: {
-        paddingHorizontal: 10,
+        paddingHorizontal: 15,
         marginTop: 50
     },
     title: {
         fontSize: SIZES.bigTitle,
         fontWeight: 'bold',
         marginBottom: 45
+    },
+    titleDescription: {
+        fontSize: SIZES.h2
     }
 })
