@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { COLORS, SIZES } from '../constants/theme'
 import { data } from '../../data'
 
-const Search = ({ navigation }) => {
+const SearchResult = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             {/* content */}
@@ -16,7 +16,7 @@ const Search = ({ navigation }) => {
                 renderItem={({ item }) => {
                     return (
                         <View style={styles.productItem}>
-                            <TouchableOpacity style={styles.imageContainer} onPress={() => navigation.navigate('product-details', item)}>
+                            <TouchableOpacity style={styles.imageContainer} onPress={() => console.log(navigation)}>
                                 <Image
                                     style={styles.image}
                                     source={{ uri: item.image }}
@@ -37,7 +37,7 @@ const Search = ({ navigation }) => {
     )
 }
 
-export default Search
+export default SearchResult
 
 const styles = StyleSheet.create({
     productItem: {

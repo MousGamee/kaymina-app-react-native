@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import { StyleSheet, Text, View, Image, FlatList, Animated } from 'react-native'
-import { WIDTH, HEIGTH, SIZES } from '../constants/theme'
+import { WIDTH, HEIGHt, SIZES } from '../constants/theme'
 
-const IMAGE_HEIGTH = HEIGTH * 0.75
+const IMAGE_HEIGHt = HEIGHt * 0.75
 const DOT_SIZE = 8
 const DOT_SPACING = 8
 const DOT_INDICATOR_SIZE = DOT_SIZE + DOT_SPACING
@@ -17,7 +17,7 @@ const ProductDetails = ({ navigation, route }) => {
         <View style={{ flex: 1 }}>
             <View style={styles.imageContainer}>
                 <Animated.FlatList
-                    snapToInterval={IMAGE_HEIGTH}
+                    snapToInterval={IMAGE_HEIGHt}
                     decelerationRate="fast"
                     showsVerticalScrollIndicator={false}
                     bounces={false}
@@ -43,7 +43,7 @@ const ProductDetails = ({ navigation, route }) => {
                     })}
                     <Animated.View style={[styles.dotIndicater, {
                         transform: [{
-                            translateY: Animated.divide(scrollY, IMAGE_HEIGTH).interpolate({
+                            translateY: Animated.divide(scrollY, IMAGE_HEIGHt).interpolate({
                                 inputRange: [0, 1],
                                 outputRange: [0, DOT_INDICATOR_SIZE]
                             })
@@ -53,7 +53,7 @@ const ProductDetails = ({ navigation, route }) => {
             </View>
             <BottomSheet
                 initialSnapIndex={0}
-                snapPoints={[HEIGTH - IMAGE_HEIGTH, HEIGTH]}
+                snapPoints={[HEIGHt - IMAGE_HEIGHt, HEIGHt]}
             >
                 <BottomSheetScrollView
                     contentContainerStyle={{ padding: 10 }}
@@ -72,17 +72,17 @@ export default ProductDetails
 
 const styles = StyleSheet.create({
     imageContainer: {
-        height: IMAGE_HEIGTH,
+        height: IMAGE_HEIGHt,
         overflow: 'hidden'
     },
     image: {
         width: WIDTH,
-        height: IMAGE_HEIGTH,
+        height: IMAGE_HEIGHt,
         resizeMode: 'cover'
     },
     pagination: {
         position: 'absolute',
-        top: IMAGE_HEIGTH / 2,
+        top: IMAGE_HEIGHt / 2,
         left: 20
     },
     dot: {
@@ -90,14 +90,14 @@ const styles = StyleSheet.create({
         height: DOT_SIZE,
         borderRadius: DOT_SIZE,
         marginBottom: DOT_SPACING,
-        backgroundColor: "#333"
+        backgroundColor: "#000000"
     },
     dotIndicater: {
         width: DOT_INDICATOR_SIZE,
         height: DOT_INDICATOR_SIZE,
         borderRadius: DOT_INDICATOR_SIZE,
         borderWidth: 1,
-        borderRightColor: "#333",
+        borderColor: "#FFFFFF",
         position: 'absolute',
         top: -DOT_SIZE / 2,
         left: -DOT_SIZE / 2

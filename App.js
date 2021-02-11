@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { StatusBar } from 'react-native'
 import Drawer from './src/navigation/Drawer'
 import AuthNavigation from './src/navigation/AuthNavigation'
 
@@ -20,12 +20,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

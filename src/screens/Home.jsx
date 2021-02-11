@@ -1,35 +1,52 @@
 import React, { useEffect } from 'react'
-import { View, Text, SafeAreaView, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import {
+    View,
+    Text,
+    SafeAreaView,
+    FlatList,
+    StyleSheet,
+    TouchableOpacity,
+    Image,
+    Animated,
+    Dimensions
+} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { COLORS, SIZES } from '../constants/theme'
-import { data } from '../../data'
+import { COLORS, SIZES, WIDTH, HEIGTH } from '../constants/theme'
+
+const { width, height } = Dimensions.get('window')
+
+const data = [
+    {
+        key: 1,
+        title: 'Robe en wax',
+        image: 'https://kaymina.fr/wp-content/uploads/2020/11/179ce57854211c396a9a0bcfda3c4ac3-3-675x1024.jpg'
+    },
+    {
+        key: 2,
+        title: 'Robe de soirée',
+        image: 'https://kaymina.fr/wp-content/uploads/2020/11/IMG_9-for-web.jpg'
+    },
+    {
+        key: 3,
+        title: 'Prêt a porter',
+        image: 'https://kaymina.fr/wp-content/uploads/2020/11/IMG_4-for-web-2-675x1024.jpg'
+    }
+]
 
 const Home = ({ navigation }) => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             {/* content */}
-            <FlatList
-                style={{ marginTop: 10 }}
+            <Animated.FlatList
                 data={data}
-                keyExtractor={item => item._id.toString()}
-                numColumns={2}
+                keyExtractor={item => item.key.toString()}
+                horizontal
+                showsHorizontalScrollIndicator={false}
                 renderItem={({ item }) => {
                     return (
-                        <View style={styles.productItem}>
-                            <TouchableOpacity style={styles.imageContainer} onPress={() => navigation.push('product-details', item)}>
-                                <Image
-                                    style={styles.image}
-                                    source={{ uri: item.image }}
-                                />
-                            </TouchableOpacity>
-                            <View style={styles.textContainer}>
-                                <View style={styles.titleContainer}>
-                                    <Text style={styles.title}>{item.title}</Text>
-                                    {/* <Ionicons name="ios-heart-outline" size={SIZES.icons} /> */}
-                                </View>
-                                <Text style={styles.description}>{item.description}</Text>
-                            </View>
+                        <View style={{ width, height }}>
+                            <Image style={{ flex: 1, resizeMode: 'cover', }} source={{ uri: item.image }} />
                         </View>
                     )
                 }}
@@ -41,40 +58,5 @@ const Home = ({ navigation }) => {
 export default Home
 
 const styles = StyleSheet.create({
-    productItem: {
-        flex: .5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 25
-    },
-    imageContainer: {
-        width: 170,
-        height: 230,
-    },
-    image: {
-        width: null,
-        height: null,
-        resizeMode: 'cover',
-        flex: 1,
-        borderRadius: 20
-    },
-    textContainer: {
-        paddingHorizontal: 0,
-        marginTop: 10
-    },
-    titleContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-    },
-    title: {
-        fontSize: SIZES.h1,
-        color: COLORS.h1
-    },
-    description: {
-        fontSize: SIZES.h2,
-        color: COLORS.h2
-
-    }
 
 })
