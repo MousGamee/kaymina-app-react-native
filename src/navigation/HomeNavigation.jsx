@@ -23,16 +23,20 @@ const HomeNavigation = ({ navigation }) => {
                 headerLeft: () => (
                     <TouchableOpacity
                         onPress={() => navigation.openDrawer()}
-                        style={{ height: '100%', alignContent: 'center', justifyContent: 'center' }}>
+                        style={{ height: '100%', alignContent: 'center', justifyContent: 'center', paddingRight: 15 }}>
                         <Ionicons
                             name="ios-menu" size={SIZES.icons} style={{ marginLeft: 20 }} color={COLORS.white} />
                     </TouchableOpacity>
                 ),
 
                 headerRight: () => (
-                    <View style={{ flexDirection: 'row', marginRight: 20 }}>
-                        <Ionicons name="ios-heart" color={COLORS.white} size={SIZES.icons} onPress={() => navigation.navigate('favoris')} />
-                        <Ionicons name="ios-search" color={COLORS.white} size={SIZES.icons} style={{ marginLeft: 20 }} onPress={() => navigation.navigate('search')} />
+                    <View style={{ flexDirection: 'row', marginRight: 20, height: '100%', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('favoris')} style={{ height: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6 }}>
+                            <Ionicons name="ios-heart" color={COLORS.white} size={SIZES.icons} />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('search')} style={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                            <Ionicons name="ios-search" color={COLORS.white} size={SIZES.icons} style={{ marginLeft: 15 }} />
+                        </TouchableOpacity>
                     </View>
                 ),
                 headerTitle: () => (
