@@ -7,13 +7,25 @@ import {
     StyleSheet,
     TouchableOpacity,
     Image,
-    TextInput
+    TextInput,
+    Animated
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { COLORS, HEIGHt, SIZES } from '../constants/theme'
+import { COLORS, HEIGHt, SIZES, WIDTH } from '../constants/theme'
 import { data } from '../../data'
+// TODO 
+// corriger le probleme du padding bottom
+
+//animation
+const scrollY = new Animated.Value(0)
+const diffClamp = Animated.diffClamp(scrollY, 0, SIZES.header)
+const translateY = diffClamp.interpolate({
+    inputRange: [0, SIZES.header],
+    outputRange: [0, -SIZES.header]
+})
 
 const Search = ({ navigation }) => {
+
     const [searchQuery, setSearchQuery] = useState('')
     const [isSearching, setIsSearching] = useState(false)
 
@@ -27,12 +39,10 @@ const Search = ({ navigation }) => {
         setIsSearching(false)
     }
 
-    console.log(navigation)
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-
             {/* Search bar */}
-            <View style={styles.searchContainer}>
+            <Animated.View style={styles.searchContainer}>
                 <View style={styles.searchBarContainer}>
                     <TouchableOpacity style={styles.backBtnContainer} onPress={() => navigation.goBack()}>
                         <Ionicons name="arrow-back-outline" style={styles.backBtn} size={SIZES.icons} />
@@ -56,19 +66,21 @@ const Search = ({ navigation }) => {
                                 <Ionicons name="close-circle-outline" size={SIZES.icons} />
                             </TouchableOpacity>
                         }
-
                     </View>
                 </View>
-            </View>
+            </Animated.View>
 
             {/* Search result*/}
             {
                 isSearching ? (
                     <FlatList
-                        style={{ marginTop: 10 }}
+                        style={{ paddingTop: SIZES.header + 10 }}
                         data={data}
                         keyExtractor={item => item._id.toString()}
                         numColumns={2}
+                        onScroll={(e) => {
+                            scrollY.setValue(e.nativeEvent.contentOffset.y)
+                        }}
                         renderItem={({ item }) => {
                             return (
                                 <View style={styles.productItem}>
@@ -105,7 +117,14 @@ export default Search
 
 const styles = StyleSheet.create({
     searchContainer: {
-        height: 50,
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        right: 0,
+        transform: [
+            { translateY: translateY }
+        ],
+        height: SIZES.header,
         paddingHorizontal: 15,
         backgroundColor: COLORS.white,
         shadowColor: "#000",
@@ -115,7 +134,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
-
+        zIndex: 4,
         elevation: 4,
     },
     searchBarContainer: {
@@ -174,7 +193,5 @@ const styles = StyleSheet.create({
     description: {
         fontSize: SIZES.h2,
         color: COLORS.h2
-
     }
-
 })
