@@ -48,17 +48,7 @@ const HomeNavigation = ({ navigation }) => {
 
             }} />
             <HomeStack.Screen name="search" component={Search} options={{
-                headerTitle: () => (
-                    <View style={styles.container}>
-                        <View style={styles.inputContainer}>
-                            <TextInput style={styles.input} placeholder={'Recherche'} />
-                        </View>
-                    </View>
-                ),
-                headerRight: () => (
-                    <Ionicons name='heart-outline' />
-                )
-
+                headerShown: false
             }} />
             <HomeStack.Screen name="favoris" component={Favoris} />
             <HomeStack.Screen name="search-result" component={SearchResult} />

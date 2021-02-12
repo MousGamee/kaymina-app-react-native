@@ -21,12 +21,22 @@ const data = [
         key: 1,
         title: 'Robe en wax',
         image: 'https://kaymina.fr/wp-content/uploads/2020/11/179ce57854211c396a9a0bcfda3c4ac3-3-675x1024.jpg',
+        images: [
+            'https://kaymina.fr/wp-content/uploads/2020/11/179ce57854211c396a9a0bcfda3c4ac3-3-675x1024.jpg',
+            'https://kaymina.fr/wp-content/uploads/2020/11/179ce57854211c396a9a0bcfda3c4ac3-3-675x1024.jpg',
+        ],
         ref: React.createRef()
     },
     {
         key: 2,
         title: 'Robe de soirée',
         image: 'https://kaymina.fr/wp-content/uploads/2020/11/IMG_9-for-web.jpg',
+        images: [
+            'https://kaymina.fr/wp-content/uploads/2020/11/IMG_9-for-web.jpg',
+            'https://kaymina.fr/wp-content/uploads/2020/11/IMG_9-for-web.jpg',
+
+
+        ],
         ref: React.createRef()
 
     },
@@ -34,6 +44,10 @@ const data = [
         key: 3,
         title: 'Prêt a porter',
         image: 'https://kaymina.fr/wp-content/uploads/2020/11/IMG_4-for-web-2-675x1024.jpg',
+        images: [
+            'https://kaymina.fr/wp-content/uploads/2020/11/IMG_4-for-web-2-675x1024.jpg',
+            'https://kaymina.fr/wp-content/uploads/2020/11/IMG_4-for-web-2-675x1024.jpg',
+        ],
         ref: React.createRef()
     }
 ]
@@ -135,6 +149,7 @@ const Home = ({ navigation }) => {
             offset: itemIndex * width
         })
     })
+
     return (
         <View style={{ flex: 1 }}>
             {/* content */}
