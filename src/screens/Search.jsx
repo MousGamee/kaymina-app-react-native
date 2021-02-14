@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import {
     View,
     Text,
@@ -13,6 +13,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { COLORS, HEIGHt, SIZES, WIDTH } from '../constants/theme'
 import { data } from '../../data'
+import SearchMansonry from '../components/SearchMansonry'
 // TODO 
 // corriger le probleme du padding bottom
 
@@ -102,11 +103,22 @@ const Search = ({ navigation }) => {
                         }}
                     />
                 ) : (
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-                            <Text style={{ fontSize: SIZES.bigSubtitle }}>
-                                Lancer une Recherche
-                      </Text>
-                        </View>
+                        <FlatList
+                            style={{ paddingTop: SIZES.header }}
+                            data={data}
+                            keyExtractor={item => item._id.toString()}
+                            numColumns={2}
+                            onScroll={(e) => {
+                                scrollY.setValue(e.nativeEvent.contentOffset.y)
+                            }}
+                            renderItem={({ item }) => {
+                                return (
+                                    <TouchableOpacity style={{ height: HEIGHt / 3, width: WIDTH / 2 }} onPress={() => navigation.navigate('product-details', item)}>
+                                        <Image source={{ uri: item.image }} style={styles.simpleImage} />
+                                    </TouchableOpacity>
+                                )
+                            }}
+                        />
                     )
             }
         </SafeAreaView>
@@ -176,6 +188,12 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         flex: 1,
         borderRadius: 20
+    },
+    simpleImage: {
+        width: null,
+        height: null,
+        resizeMode: 'cover',
+        flex: 1,
     },
     textContainer: {
         paddingHorizontal: 0,
